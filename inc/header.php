@@ -42,7 +42,7 @@ if(isset($_POST['logout'])) {
           <a class="navbar-brand" href="index.php">Home</a>
 
         </div>
-        <
+        
          <?php
     		if(!isLoggedIn()) { ?>
 		        <div id="navbar" class="navbar-collapse collapse">
