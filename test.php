@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include("inc/connect.php");
 
 //include("inc/functions.php");
@@ -25,4 +26,14 @@ function create_trash($user_id) {
 }
 
 create_trash(123);
+=======
+
+
+include("inc/functions.php");
+
+// register("derri", "headrush");
+
+
+//var_dump(login('three','33333333'));
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
 ?>

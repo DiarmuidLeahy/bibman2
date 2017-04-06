@@ -24,7 +24,12 @@ function logIn($uname, $pass) {
 }
 
 function logout() {
+<<<<<<< HEAD
 	$_SESSION['logged_in'] = false;
+=======
+	$_SESSION = array();
+	session_destroy();
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
 }
 
 function validate($plain, $hash) {
@@ -49,6 +54,7 @@ function register($uname, $pass) {
 		return true;
 	}
 }
+<<<<<<< HEAD
 
 function create_trash($user_id) {
 
@@ -63,3 +69,5 @@ function create_trash($user_id) {
 	return ($q -> execute());
 
 }
+=======
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c

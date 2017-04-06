@@ -2,6 +2,7 @@
 include("inc/header.php");
 ?>  
   <body>
+<<<<<<< HEAD
   	<table class="table table-striped table-hover">
   	<thead>
 	  	<tr>
@@ -68,4 +69,8 @@ include("inc/header.php");
   		($'#myModal').modal('show');
   	});
   </script>
+=======
+  	
+  </body>
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
 </html>

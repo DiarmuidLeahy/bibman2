@@ -19,10 +19,13 @@ if(isset($_POST['logout'])) {
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="icon" href="images/favicon.ico" type="image/gif" sizes="16x16">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+<<<<<<< HEAD
         <script
 			  src="https://code.jquery.com/jquery-3.2.1.js"
 			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			  crossorigin="anonymous"></script>
+=======
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
         <script src="https://use.fontawesome.com/15554a26f7.js"></script>
         <style>
             body {
@@ -35,8 +38,12 @@ if(isset($_POST['logout'])) {
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<<<<<<< HEAD
         
 
+=======
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+>>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
     </head>
     <body>
 
