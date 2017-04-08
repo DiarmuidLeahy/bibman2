@@ -7,6 +7,9 @@ include("functions.php");
 if(isset($_POST['logout'])) {
 	logout();
 }
+if(isLoggedIn()) {
+	create_trash($_SESSION['user_id']);
+}
 ?>
 
 <!doctype html>
@@ -19,13 +22,12 @@ if(isset($_POST['logout'])) {
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="icon" href="images/favicon.ico" type="image/gif" sizes="16x16">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-<<<<<<< HEAD
+
         <script
 			  src="https://code.jquery.com/jquery-3.2.1.js"
 			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			  crossorigin="anonymous"></script>
-=======
->>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
+
         <script src="https://use.fontawesome.com/15554a26f7.js"></script>
         <style>
             body {
@@ -38,26 +40,26 @@ if(isset($_POST['logout'])) {
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-<<<<<<< HEAD
-        
 
-=======
+        
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
->>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
     </head>
     <body>
 
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.php">Home</a>
+        <!-- <div class="navbar-header">
+          
 
+        </div> -->
+        <div class="col-md-11">
+        	<a class="navbar-brand pull-right" href="index.php">Home</a>
         </div>
-        
+        <div class="col-md-1">
          <?php
     		if(!isLoggedIn()) { ?>
-		        <div id="navbar" class="navbar-collapse collapse">
+
 
 		          <form id="login-form" class="navbar-form navbar-right" role="form">
 		            <div class="form-group">
@@ -81,10 +83,7 @@ if(isset($_POST['logout'])) {
 		            <button type="submit" class="btn btn-success">Register</button>
 		            <button type="reset" class="btn btn-primary reg"><i class="fa fa-exchange" aria-hidden="true"></i> Register/login</button>
 		          </form>
-
-		        </div>
          <?php } else { ?>
-
          		<div id="navbar" class="navbar-collapse collapse">
 		          	<form id="logout-form" class="navbar-form navbar-right" role="form" method="POST">
 				        <input type="hidden" name="logout" value="true">
@@ -92,11 +91,18 @@ if(isset($_POST['logout'])) {
 			        </form>
 		        </div>
 
+		    </div>
+
+
+		        
+
+
+
 		        <?php } ?>
       </div>
     </nav>
 
-    <div>
+    <div class="container">
     <?php 
 
     	?>

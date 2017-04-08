@@ -1,8 +1,16 @@
 <?php
 include("inc/header.php");
 ?>  
-  <body>
-<<<<<<< HEAD
+    <body>
+    <br><br><br><br>
+
+    <select id="folders" class="form-control">
+        <option value="" default>Select one</option>
+        <option value="all" default>All</option>
+        <option value="trash">trash</option>
+        <option value="unfiled">unfiled</option>
+    </select>
+
   	<table class="table table-striped table-hover">
   	<thead>
 	  	<tr>
@@ -17,12 +25,21 @@ include("inc/header.php");
 	</thead>
 	<tbody>
   	<?php
+    if(isset($_GET['folder']) && $_GET['folder'] != 'all') {
+        $q = $db -> prepare("SELECT r.* FROM refs r INNER JOIN folders f ON r.user_id = f.user_id 
+            WHERE r.user_id = ? AND f.name = ? AND r.user_id = f.user_id AND r.id = f.ref_id");
 
+        $q -> bindParam(1, $_SESSION['user_id']);
+        $q -> bindParam(2, $_GET['folder']);
+        $q -> execute();
+        $results = $q -> fetchAll(PDO::FETCH_ASSOC);
+    } else {
 
   		$q = $db -> prepare("SELECT r.* FROM refs r WHERE r.user_id = ?");
   		$q -> bindParam(1, $_SESSION['user_id']);
   		$q -> execute();
   		$results = $q -> fetchAll(PDO::FETCH_ASSOC);
+        }
 
   		foreach($results as $row) { ?>
   		<tr>
@@ -40,37 +57,17 @@ include("inc/header.php");
 
   	<button id="modal-button" type="button" class="btn btn-info btn-lg">Add new</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
   </body>
+
   <script type="text/javascript">
-  	$('#modal-button').click( function (e) {
-  		e.preventDefault();
-  		//console.info("test");
-  		($'#myModal').modal('show');
-  	});
+    $('#folders').change( function (e) {
+        e.preventDefault();
+        var folder = $(this).val();
+        window.location.href = "index.php?folder="+folder;
+        
+    });
   </script>
-=======
   	
   </body>
->>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
 </html>

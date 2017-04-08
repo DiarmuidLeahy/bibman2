@@ -24,12 +24,11 @@ function logIn($uname, $pass) {
 }
 
 function logout() {
-<<<<<<< HEAD
+
 	$_SESSION['logged_in'] = false;
-=======
+
 	$_SESSION = array();
 	session_destroy();
->>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
 }
 
 function validate($plain, $hash) {
@@ -54,7 +53,7 @@ function register($uname, $pass) {
 		return true;
 	}
 }
-<<<<<<< HEAD
+
 
 function create_trash($user_id) {
 
@@ -66,8 +65,37 @@ function create_trash($user_id) {
 	  	user_id INT(10),
 	  	PRIMARY KEY (id))");
 
-	return ($q -> execute());
+	$check_for_trash = $db -> prepare("SELECT f.id FROM folders f WHERE f.name = ? AND f.user_id = ? LIMIT 1");
+	$check_for_trash -> bindValue(1, 'trash');
+	$check_for_trash -> bindParam(2, $user_id);
+	$check_for_trash -> execute();
+	$result = $check_for_trash -> fetch(PDO::FETCH_ASSOC);
+
+	if(!isset($result['id'])) {	//Don't create the trash folder if it already exists for this user
+
+		$insert = $db -> prepare("INSERT INTO folders(name, user_id) VALUES (?, ?)");
+		$insert -> bindValue(1,'trash');
+		$insert -> bindParam(2, $user_id);
+		$insert -> execute();
+
+	}
+
+	$check_for_unfiled = $db -> prepare("SELECT f.id FROM folders f WHERE f.name = ? AND f.user_id = ? LIMIT 1");
+	$check_for_unfiled -> bindValue(1, 'unfiled');
+	$check_for_unfiled -> bindParam(2, $user_id);
+	$check_for_unfiled -> execute();
+	$result = $check_for_unfiled -> fetch(PDO::FETCH_ASSOC);
+
+	if(!isset($result['id'])) {	//Don't create the trash folder if it already exists for this user
+
+		$insert = $db -> prepare("INSERT INTO folders(name, user_id) VALUES (?, ?)");
+		$insert -> bindValue(1,'unfiled');
+		$insert -> bindParam(2, $user_id);
+		$insert -> execute();
+
+	}
+
+	return;
 
 }
-=======
->>>>>>> 08220a69efcac89aef31eacc9172407cabe29c1c
+
