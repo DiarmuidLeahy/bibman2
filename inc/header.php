@@ -11,7 +11,7 @@ if(isLoggedIn()) {
 	create_trash($_SESSION['user_id']);
 }
 ?>
-
+<!-- Jennifer Burke-->
 <!doctype html>
     <head>
         <meta charset="utf-8">
@@ -53,13 +53,12 @@ if(isLoggedIn()) {
           
 
         </div> -->
-        <div class="col-md-11">
-        	<a class="navbar-brand pull-right" href="index.php">Home</a>
+        <div class="col-md-2">
+        	<a class="navbar-brand" href="index.php">Home</a>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-10">
          <?php
     		if(!isLoggedIn()) { ?>
-
 
 		          <form id="login-form" class="navbar-form navbar-right" role="form">
 		            <div class="form-group">
@@ -71,7 +70,6 @@ if(isLoggedIn()) {
 		            <button type="submit" class="btn btn-success">Sign in</button>
 		            <button type="reset" class="btn btn-primary reg"><i class="fa fa-exchange" aria-hidden="true"></i> Register/login</button>
 		          </form>
-
 
 		          <form id="reg-form" class="navbar-form navbar-right" role="form" style="display:none">
 		            <div class="form-group">

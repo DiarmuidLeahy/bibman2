@@ -67,6 +67,14 @@ include("inc/header.php");
         window.location.href = "index.php?folder="+folder;
         
     });
+
+
+    $('#example').submit( function (e) {
+        $(this)
+        if($(this)).valid( function {
+
+        });
+    });
   </script>
   	
   </body>
