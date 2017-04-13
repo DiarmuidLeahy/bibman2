@@ -14,6 +14,7 @@ include("inc/header.php");
   	<table class="table table-striped table-hover">
   	<thead>
 	  	<tr>
+            <th>#</th>
 		  	<th>title</th>
 		  	<th>author</th>
 		  	<th>date added</th>
@@ -43,6 +44,9 @@ include("inc/header.php");
 
   		foreach($results as $row) { ?>
   		<tr>
+            <td>
+                <input class="radion" type="radio" name="optradio">
+            </td>
   			<td><?=$row['title']?></td>
 		  	<td><?=$row['author']?></td>
 		  	<td><?=$row['date_added']?></td>
@@ -62,11 +66,15 @@ include("inc/header.php");
             <input type="email" name="email" placeholder="Email" class="form-control">
         </div>
         <div class="form-group">
-            <input type="password" id="password" name="email" placeholder="Password" class="form-control">
+            <input type="password" id="old_password" value="" name="pass_old" placeholder="current" class="form-control">
         </div>
         <div class="form-group">
-            <input type="password" id="password_confirm" name="email" data-rule-equalTo="#password" placeholder="confirm" class="form-control">
+            <input type="password" id="password" value="" name="pass_new" placeholder="new" class="form-control">
         </div>
+        <div class="form-group">
+            <input type="password" id="password_confirm" value="" name="password_confirm" data-rule-equalTo="#password" placeholder="confirm" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-info">Change</button>
     </form>
 
 
@@ -86,21 +94,25 @@ include("inc/header.php");
         
       </script>
   <script type="text/javascript">
-//   jQuery('#test').validate({
-//     rules: {
-//         password: {
-//             minlength: 5
-//         },
-//         password_confirm: {
-//             minlength: 5,
-//             equalTo: "#password"
-//         }
-//     }
-// });
-  $('#test').validate();
+      
+
+      //$('#test').validate();
+      $("#test").validate({
+          rules: {
+            pass_old: { notEqual: $('#old_password').val() }
+          }
+        });
+
+
+
+
       $('#test').submit( function (e) {
-        if($(this).valid())  {
+        if($(this).valid()) {
+            alert("success!");
             console.log("test");
+            //perform request
+        } else {
+            alert("fail");
         }
     });
   </script>
