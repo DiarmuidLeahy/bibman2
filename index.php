@@ -56,24 +56,52 @@ include("inc/header.php");
   	</table>
 
   	<button id="modal-button" type="button" class="btn btn-info btn-lg">Add new</button>
+    <br><br><br>
+    <form id="test" class="form">
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="email" placeholder="Password" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password_confirm" name="email" data-rule-equalTo="#password" placeholder="confirm" class="form-control">
+        </div>
+    </form>
 
 
   </body>
 
-  <script type="text/javascript">
-    $('#folders').change( function (e) {
-        e.preventDefault();
-        var folder = $(this).val();
-        window.location.href = "index.php?folder="+folder;
-        
-    });
+    <script src="js/jquery.validation/jquery.validate.js"></script>
 
-
-    $('#example').submit( function (e) {
-        $(this)
-        if($(this)).valid( function {
-
+      <script type="text/javascript">
+        $('#folders').change( function (e) {
+            e.preventDefault();
+            var folder = $(this).val();
+            window.location.href = "index.php?folder="+folder;
+            
         });
+
+
+        
+      </script>
+  <script type="text/javascript">
+//   jQuery('#test').validate({
+//     rules: {
+//         password: {
+//             minlength: 5
+//         },
+//         password_confirm: {
+//             minlength: 5,
+//             equalTo: "#password"
+//         }
+//     }
+// });
+  $('#test').validate();
+      $('#test').submit( function (e) {
+        if($(this).valid())  {
+            console.log("test");
+        }
     });
   </script>
   	
