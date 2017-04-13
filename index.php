@@ -61,15 +61,15 @@ include("inc/header.php");
 
   	<button id="modal-button" type="button" class="btn btn-info btn-lg">Add new</button>
     <br><br><br>
-    <form id="test" class="form">
+    <form id="test" class="form" method="get">
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" class="form-control">
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
         </div>
         <div class="form-group">
             <input type="password" id="old_password" value="" name="pass_old" placeholder="current" class="form-control">
         </div>
         <div class="form-group">
-            <input type="password" id="password" value="" name="pass_new" placeholder="new" class="form-control">
+            <input type="password" id="password" value="" name="pass_new" placeholder="new" data-rule-notEqualTo="#old_password" class="form-control">
         </div>
         <div class="form-group">
             <input type="password" id="password_confirm" value="" name="password_confirm" data-rule-equalTo="#password" placeholder="confirm" class="form-control">
@@ -81,6 +81,7 @@ include("inc/header.php");
   </body>
 
     <script src="js/jquery.validation/jquery.validate.js"></script>
+    <script src="js/jquery.validation/additional-methods.js"></script>
 
       <script type="text/javascript">
         $('#folders').change( function (e) {
@@ -96,21 +97,12 @@ include("inc/header.php");
   <script type="text/javascript">
       
 
-      //$('#test').validate();
-      $("#test").validate({
-          rules: {
-            pass_old: { notEqual: $('#old_password').val() }
-          }
-        });
-
-
-
+      $('#test').validate();
 
       $('#test').submit( function (e) {
-        if($(this).valid()) {
+        if($(this).valid() == true) {
             alert("success!");
             console.log("test");
-            //perform request
         } else {
             alert("fail");
         }
