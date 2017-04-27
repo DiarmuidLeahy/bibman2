@@ -85,6 +85,7 @@ if(isLoggedIn()) {
 		          	<form id="logout-form" class="navbar-form navbar-right" role="form" method="POST">
 				        <input type="hidden" name="logout" value="true">
 				        <button type="submit" id="logout" class="btn btn-danger">Sign Out</button>
+				        <a href="account.php">Account</a>
 			        </form>
 		        </div>
 

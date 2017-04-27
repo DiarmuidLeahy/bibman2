@@ -76,38 +76,6 @@ include("inc/header.php");
         </div>
         <button type="submit" class="btn btn-info">Change</button>
     </form>
-
-
-  </body>
-
-    <script src="js/jquery.validation/jquery.validate.js"></script>
-    <script src="js/jquery.validation/additional-methods.js"></script>
-
-      <script type="text/javascript">
-        $('#folders').change( function (e) {
-            e.preventDefault();
-            var folder = $(this).val();
-            window.location.href = "index.php?folder="+folder;
-            
-        });
-
-
-        
-      </script>
-  <script type="text/javascript">
-      
-
-      $('#test').validate();
-
-      $('#test').submit( function (e) {
-        if($(this).valid() == true) {
-            alert("success!");
-            console.log("test");
-        } else {
-            alert("fail");
-        }
-    });
-  </script>
-  	
-  </body>
-</html>
+</body>
+<?php
+include("inc/footer.php");
