@@ -3,6 +3,7 @@ session_start();
 
 include("connect.php");
 include("functions.php");
+include("setup.php");
 
 if(isset($_POST['logout'])) {
 	logout();
@@ -11,7 +12,7 @@ if(isLoggedIn()) {
 	create_trash($_SESSION['user_id']);
 }
 ?>
-<!-- Jennifer Burke-->
+
 <!doctype html>
     <head>
         <meta charset="utf-8">

@@ -96,7 +96,6 @@ function create_trash($user_id) {
 	}
 
 	return;
-
 }
 
 function updateDetails($id, $uname, $old, $new) {
